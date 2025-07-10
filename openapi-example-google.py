@@ -29,7 +29,7 @@ from google.adk.tools.openapi_tool.openapi_spec_parser.openapi_toolset import Op
 load_dotenv() # Create a .env file in the same directory if needed
 
 # --- Set API Key directly ---
-os.environ['GOOGLE_API_KEY'] = 'AIzaSyCO2jDrLL9fK_abAUbuxlZFusaYvcys0FU'
+
 
 # --- Constants ---
 APP_NAME_OPENAPI = "openapi_petstore_app"
