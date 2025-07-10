@@ -15,7 +15,6 @@
 import asyncio
 import uuid # For unique session IDs
 import os
-from dotenv import load_dotenv
 
 from google.adk.agents import LlmAgent
 from google.adk.runners import Runner
@@ -25,11 +24,9 @@ from google.genai import types
 # --- OpenAPI Tool Imports ---
 from google.adk.tools.openapi_tool.openapi_spec_parser.openapi_toolset import OpenAPIToolset
 
-# --- Load Environment Variables (If ADK tools need them, e.g., API keys) ---
-load_dotenv() # Create a .env file in the same directory if needed
-
-# --- Set API Key directly ---
-
+# --- Check if API Key is set ---
+if not os.environ.get('GOOGLE_API_KEY'):
+    raise ValueError("GOOGLE_API_KEY environment variable is required. Please set it before running the script.")
 
 # --- Constants ---
 APP_NAME_OPENAPI = "openapi_petstore_app"

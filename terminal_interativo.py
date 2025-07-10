@@ -15,7 +15,6 @@
 import asyncio
 import uuid
 import os
-from dotenv import load_dotenv
 
 from google.adk.agents import LlmAgent
 from google.adk.runners import Runner
@@ -25,10 +24,9 @@ from google.genai import types
 # --- OpenAPI Tool Imports ---
 from google.adk.tools.openapi_tool.openapi_spec_parser.openapi_toolset import OpenAPIToolset
 
-# --- Load Environment Variables ---
-load_dotenv()
-
-# --- Set API Key directly ---
+# --- Check if API Key is set ---
+if not os.environ.get('GOOGLE_API_KEY'):
+    raise ValueError("GOOGLE_API_KEY environment variable is required. Please set it before running the script.")
 
 
 # --- Constants ---
